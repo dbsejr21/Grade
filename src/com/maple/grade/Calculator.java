@@ -19,6 +19,22 @@ public class Calculator {
 			System.out.println("invalid score");
 			System.exit(-1);
 		}
-		return score;	
+		return score;
+	}
+	
+	float grade(Subject[] sa){
+		float grade = 0;
+		
+		
+		
+		return grade;
+	}
+	
+	float sum(Subject[] sa){
+		float sum = 0;
+		for(int i = 0; i < sa.length; i++){
+			sum += Float.toString(sa[i].getScore());
+		}
+		return sum;
 	}
 }
