@@ -1,40 +1,54 @@
 package com.maple.grade;
 
 public class Calculator {
-	
-	String calc(int n){
-		String score = null;
+	void eachGrade(Subject[] sa){
 		
-		if ( n >= 90 && n <= 100){
-			score = "A";
-		} else if ( n >= 80 && n <= 89){
-			score = "B";
-		} else if ( n >= 70 && n <= 79){
-			score = "C";
-		} else if ( n >= 60 && n <= 69){
-			score = "D";
-		} else if ( n >= 0 && n <= 59){
-			score = "F";
-		} else {
-			System.out.println("invalid score");
-			System.exit(-1);
+		for (int i = 0; i < sa.length; i++){
+			int score = sa[i].getScore(); 
+			if ( score >= 90 && score <= 100){
+				sa[i].setGrade("A");
+				sa[i].setGrade2((float)4.5);
+			} else if ( score >= 80 && score <= 89){
+				sa[i].setGrade("B");
+				sa[i].setGrade2((float)3.5);
+			} else if ( score >= 70 && score <= 79){
+				sa[i].setGrade("C");
+				sa[i].setGrade2((float)2.5);
+			} else if ( score >= 60 && score <= 69){
+				sa[i].setGrade("D");
+				sa[i].setGrade2((float)1.5);
+			} else if ( score >= 0 && score <= 59){
+				sa[i].setGrade("F");
+				sa[i].setGrade2((float)0);
+			} else {
+				System.out.println("invalid score");
+				System.exit(-1);
+			}
 		}
-		return score;
 	}
 	
-	float grade(Subject[] sa){
+	float totalGrade(Subject[] sa, int n){
 		float grade = 0;
-		
+		grade = sumGrade(sa) / n;
 		
 		
 		return grade;
 	}
 	
-	float sum(Subject[] sa){
+	float sumScore(Subject[] sa){
 		float sum = 0;
 		for(int i = 0; i < sa.length; i++){
-			sum += Float.toString(sa[i].getScore());
+			sum += sa[i].getScore();
+		}
+		return sum;
+	}
+	
+	float sumGrade(Subject[] sa){
+		float sum = 0;
+		for(int i = 0; i < sa.length; i++){
+			sum += sa[i].getGrade2();
 		}
 		return sum;
 	}
 }
+
