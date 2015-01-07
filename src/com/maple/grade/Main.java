@@ -8,13 +8,6 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-			
-		FileWriter fw = new FileWriter("grade.txt");
-		BufferedWriter bw = new BufferedWriter(fw);
-		StringBuffer sb = new StringBuffer();
-		
-		Calculator c = new Calculator();
-		
 
 		//  Subject 객체배열 초기화
 		Subject[] sa = new Subject[20];
@@ -30,19 +23,22 @@ public class Main {
 		sa[4] = new Subject("과학", 50);
 		
 		// 계산
+		Calculator c = new Calculator();
 		c.eachGrade(sa);
 		
-		// 출력 하드코딩
-		System.out.println("총점 : " + c.sumScore(sa));
-		System.out.println("평균학점 : " + c.totalGrade(sa, 5));
-		
-				
+		// 표준출력
 		Printer p = new Printer();
-		p.print(sa[0]);
+		p.printEach(sa);
+		p.printSum(sa , c);
+		p.printTotGrade(sa, c, 5);
 
+		// 파일출력
+		FileWriter fw = new FileWriter("grade.txt");
+		BufferedWriter bw = new BufferedWriter(fw);
+		StringBuffer sb = new StringBuffer();
 		
 		TextPrinter tp = new TextPrinter();
-		tp.printFile(fw, bw, sb, sa);
+		tp.printFile(fw, bw, sb, sa, c);
 	
 		
 	}
