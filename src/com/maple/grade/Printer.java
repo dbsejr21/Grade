@@ -1,22 +1,34 @@
 package com.maple.grade;
 
+import java.util.ArrayList;
+
 public class Printer {
 	
-	void printEach(Subject[] sa){
-		for(int i = 0; i < sa.length; i++){
-			if (sa[i].getName() == null){
-				break;
-			}
-			System.out.println(sa[i].getName() + " : " + sa[i].getGrade() + "(" + sa[i].getScore() + ")");
+	protected StringBuffer sb;
+	
+	public Printer() {
+		sb = new StringBuffer();		
+	}
+	
+	protected void getEachGradeScore(ArrayList<Subject> listSubject){
+		for(Subject s: listSubject){
+			sb.append(s.getName() + " : " + s.getGrade() + "(" + s.getScore() + ")" + "\n");
 		}
 	}
 	
-	void printSum(Subject[] sa, Calculator c){	
-		System.out.println("총점 : " + c.sumScore(sa) + " 점");
+	protected void getSumScore(ArrayList<Subject> listSubject, Calculator c){	
+		sb.append("총점 : " + c.sumScore(listSubject) + " 점" + "\n");
 	}
 	
-	void printTotGrade(Subject[] sa, Calculator c, int n){
-		System.out.println("평균학점 : " + c.totalGrade(sa, 5));
+	protected void getAvgGrade(ArrayList<Subject> listSubject, Calculator c){
+		sb.append("평균학점 : " + c.totalGrade(listSubject, listSubject.size()) + "\n");
+	}
+	
+	protected void printToStdout(ArrayList<Subject> listSubject, Calculator c){
+		getEachGradeScore(listSubject);
+		getSumScore(listSubject, c);
+		getAvgGrade(listSubject, c);
+		System.out.println(sb.toString());
 	}
 	
 }
