@@ -6,46 +6,42 @@ public class Subject {
 		private String grade;
 		private float grade2;
 		
+		public Subject() {}
+		
 		public Subject(String s, int n) {
-			// TODO Auto-generated constructor stub
 			this.name = s;
 			this.score = n;
-		}
-		
-		public Subject() {
-			// TODO Auto-generated constructor stub
 		}
 
-		public void setGrade(String s) {
-			this.grade = s;
-		}
-		
-		public void setName(String s) {
-			this.name = s;
-		}
-		
-		public void setScore(int n) {
-			this.score = n;
-		}
-		
-		public void setGrade2(float f) {
-			this.grade2 = f;
-		}
-		
-		public String getGrade() {
-			return this.grade;
-		}
-		
 		public String getName() {
-			return this.name;
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
 		}
 
 		public int getScore() {
-			return this.score;
+			return score;
 		}
-		
+
+		public void setScore(int score) {
+			this.score = score;
+		}
+
+		public String getGrade() {
+			return grade;
+		}
+
+		public void setGrade(String grade) {
+			this.grade = grade;
+		}
+
 		public float getGrade2() {
-			return this.grade2;
+			return grade2;
 		}
-		
+
+		public void setGrade2(float grade2) {
+			this.grade2 = grade2;
+		}	
 }
