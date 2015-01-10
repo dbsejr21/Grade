@@ -1,27 +1,29 @@
 package com.maple.grade;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
 	
-	protected void calcEachGrade(ArrayList<Subject> listSubject){
-		for(Subject s: listSubject){
-			int score = s.getScore(); 
+//	private Printer printer;
+	
+	public void getGrade(List<Subject> listSubject){
+		for(Subject subject: listSubject){
+			int score = subject.getScore(); 
 			if ( score >= 90 && score <= 100){
-				s.setGrade("A");
-				s.setGrade2((float)4.5);
+				subject.setGrade("A");
+				subject.setScoreForGrade((float)4.5);
 			} else if ( score >= 80 && score <= 89){
-				s.setGrade("B");
-				s.setGrade2((float)3.5);
+				subject.setGrade("B");
+				subject.setScoreForGrade((float)3.5);
 			} else if ( score >= 70 && score <= 79){
-				s.setGrade("C");
-				s.setGrade2((float)2.5);
+				subject.setGrade("C");
+				subject.setScoreForGrade((float)2.5);
 			} else if ( score >= 60 && score <= 69){
-				s.setGrade("D");
-				s.setGrade2((float)1.5);
+				subject.setGrade("D");
+				subject.setScoreForGrade((float)1.5);
 			} else if ( score >= 0 && score <= 59){
-				s.setGrade("F");
-				s.setGrade2((float)0);
+				subject.setGrade("F");
+				subject.setScoreForGrade((float)0);
 			} else {
 				System.out.println("invalid score");
 				System.exit(-1);
@@ -29,29 +31,29 @@ public class Calculator {
 		}
 	}
 	
-	protected float totalGrade(ArrayList<Subject> listSubject, int n){
+	public float totalGrade(List<Subject> listSubject, int subjectCount){
 		float grade = 0;
 		
-		grade = sumGrade(listSubject) / n;
+		grade = sumGrade(listSubject) / subjectCount;
 		
 		return grade;
 	}
 	
-	protected float sumScore(ArrayList<Subject> listSubject){
+	public float sumScore(List<Subject> listSubject){
 		float sum = 0;
 		
-		for(Subject s: listSubject){
-			sum += s.getScore();
+		for(Subject subject: listSubject){
+			sum += subject.getScore();
 		}
 		
 		return sum;
 	}
 	
-	protected float sumGrade(ArrayList<Subject> listSubject){
+	public float sumGrade(List<Subject> listSubject){
 		float sum = 0;
 		
-		for(Subject s: listSubject){
-			sum += s.getGrade2();
+		for(Subject subject: listSubject){
+			sum += subject.getScoreForGrade();
 		}
 		
 		return sum;

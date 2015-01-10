@@ -1,34 +1,39 @@
 package com.maple.grade;
 
-import java.util.ArrayList;
+import java.util.List;
+
+// 인터페이스화,
 
 public class Printer {
 	
-	protected StringBuffer sb;
+	private Calculator calculator;
+	
+	protected StringBuffer strBuffer;
 	
 	public Printer() {
-		sb = new StringBuffer();		
+		strBuffer = new StringBuffer();
+		calculator = new Calculator();
 	}
 	
-	protected void getEachGradeScore(ArrayList<Subject> listSubject){
-		for(Subject s: listSubject){
-			sb.append(s.getName() + " : " + s.getGrade() + "(" + s.getScore() + ")" + "\n");
+	public void getEachGradeScore(List<Subject> listSubject){
+		for(Subject subject: listSubject){
+			strBuffer.append(subject.getName() + " : " + subject.getGrade() + "(" + subject.getScore() + ")" + "\n");
 		}
 	}
 	
-	protected void getSumScore(ArrayList<Subject> listSubject, Calculator c){	
-		sb.append("총점 : " + c.sumScore(listSubject) + " 점" + "\n");
+	public void getSumScore(List<Subject> listSubject){	
+		strBuffer.append("총점 : " + calculator.sumScore(listSubject) + " 점" + "\n");
 	}
 	
-	protected void getAvgGrade(ArrayList<Subject> listSubject, Calculator c){
-		sb.append("평균학점 : " + c.totalGrade(listSubject, listSubject.size()) + "\n");
+	public void getAvgGrade(List<Subject> listSubject){
+		strBuffer.append("평균학점 : " + calculator.totalGrade(listSubject, listSubject.size()) + "\n");
 	}
 	
-	protected void printToStdout(ArrayList<Subject> listSubject, Calculator c){
+	public void printToStdout(List<Subject> listSubject){
 		getEachGradeScore(listSubject);
-		getSumScore(listSubject, c);
-		getAvgGrade(listSubject, c);
-		System.out.println(sb.toString());
+		getSumScore(listSubject);
+		getAvgGrade(listSubject);
+		System.out.println(strBuffer.toString());
 	}
 	
 }

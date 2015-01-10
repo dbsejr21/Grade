@@ -4,13 +4,14 @@ public class Subject {
 		private String name;
 		private int score;
 		private String grade;
-		private float grade2;
+		private float scoreForGrade;
 		
-		public Subject() {}
+		public Subject() {
+		}
 		
-		public Subject(String s, int n) {
-			this.name = s;
-			this.score = n;
+		public Subject(String name, int score) {
+			this.name = name;
+			this.score = score;
 		}
 
 		public String getName() {
@@ -37,11 +38,11 @@ public class Subject {
 			this.grade = grade;
 		}
 
-		public float getGrade2() {
-			return grade2;
+		public float getScoreForGrade() {
+			return scoreForGrade;
 		}
 
-		public void setGrade2(float grade2) {
-			this.grade2 = grade2;
-		}	
+		public void setScoreForGrade(float scoreForGrade) {
+			this.scoreForGrade = scoreForGrade;
+		}
 }

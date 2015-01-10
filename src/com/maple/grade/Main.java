@@ -18,16 +18,16 @@ public class Main {
 		listSubject.add(new Subject("과학", 50));
 	
 		// 계산
-		Calculator c = new Calculator();
-		c.calcEachGrade(listSubject);
+		Calculator calculator = new Calculator();
+		calculator.getGrade(listSubject);
 		
 		// 표준출력
-		Printer p = new Printer();
-		p.printToStdout(listSubject, c);
+		Printer printer = new Printer();
+		printer.printToStdout(listSubject);
 
 		// 파일출력
-		TextPrinter tp = new TextPrinter("grade.txt");
-		tp.printToFile(listSubject, c);
+		TextPrinter textPrinter = new TextPrinter("grade.txt");
+		textPrinter.printToFile(listSubject);
 		
 	}
 }
