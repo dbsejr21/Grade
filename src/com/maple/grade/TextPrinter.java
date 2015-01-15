@@ -3,28 +3,31 @@ package com.maple.grade;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+
+// is A 관계
+// has A 관계
 
 public class TextPrinter extends Printer{
 	
-	private FileWriter fw;
-	private BufferedWriter bw;
+	private FileWriter fileWriter;
+	private BufferedWriter bufferdWriter;
 	
 	public TextPrinter(String filename) throws IOException {
-		fw = new FileWriter(filename);
-		bw = new BufferedWriter(fw);
-		sb = new StringBuffer();		
+		fileWriter = new FileWriter(filename);
+		bufferdWriter = new BufferedWriter(fileWriter);
+		strBuffer = new StringBuffer();		
 	}
 
-	protected void printToFile(ArrayList<Subject> listSubject, Calculator c) throws IOException {
+	protected void printToFile(List<Subject> listSubject) throws IOException {
 		
 		getEachGradeScore(listSubject);
-		getSumScore(listSubject, c);
-		getAvgGrade(listSubject, c);
+		getSumScore(listSubject);
+		getAvgGrade(listSubject);
 				
-		bw.write(sb.toString());
+		bufferdWriter.write(strBuffer.toString());
 	
-		bw.flush();
-		fw.close();
+		bufferdWriter.flush();
+		fileWriter.close();
 	}
 }
